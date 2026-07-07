@@ -1,6 +1,6 @@
 import Upload from "./components/Upload";
 import Documents from "./components/Documents";
-import AskAI from "./components/AskAI";
+import AskAi from "./components/AskAi";
 
 function App() {
 
