@@ -46,9 +46,8 @@ function AskAI() {
 
         try {
 
-            const response = await fetch(
-                `http://localhost:8080/rag/ask?question=${encodeURIComponent(currentQuestion)}`
-            );
+           const response = await fetch(
+    `${import.meta.env.VITE_API_URL}/rag/ask?question=${encodeURIComponent(currentQuestion)}`);
 
               const data = await response.json();
 
