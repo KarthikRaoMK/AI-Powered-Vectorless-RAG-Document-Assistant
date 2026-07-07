@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import ChatBubble from "./ChatBubble";
 
-function AskAi() {
+function AskAI() {
 
     const [question, setQuestion] = useState("");
 
