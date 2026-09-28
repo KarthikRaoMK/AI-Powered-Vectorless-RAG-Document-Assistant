@@ -1,30 +1,43 @@
 package com.rag.application.config;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 public class CorsConfig {
 
     @Bean
-    public WebMvcConfigurer corsConfigurer() {
+    public CorsFilter corsFilter() {
 
-        return new WebMvcConfigurer() {
+        CorsConfiguration config = new CorsConfiguration();
 
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
+        config.setAllowedOrigins(List.of(
+                "https://ai-assisted-rag.netlify.app",
+                "http://localhost:5173"
+        ));
 
-                registry.addMapping("/**")
-                        .allowedOrigins("https://ai-assisted-rag.netlify.app")
-                        .allowedMethods("*")
-                        .allowedHeaders("*");
+        config.setAllowedMethods(List.of(
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE",
+                "OPTIONS"
+        ));
 
-            }
+        config.setAllowedHeaders(List.of("*"));
 
-        };
+        config.setAllowCredentials(false);
 
+        UrlBasedCorsConfigurationSource source =
+                new UrlBasedCorsConfigurationSource();
+
+        source.registerCorsConfiguration("/**", config);
+
+        return new CorsFilter(source);
     }
-
 }
