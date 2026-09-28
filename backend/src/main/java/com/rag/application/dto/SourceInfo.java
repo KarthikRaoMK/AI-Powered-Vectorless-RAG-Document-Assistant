@@ -5,7 +5,7 @@ public class SourceInfo {
     private String title;
     private int chunkNumber;
 
-    public SourceInfo(String title, int chunkNumber) {
+    public SourceInfo(String title, Integer chunkNumber) {
         this.title = title;
         this.chunkNumber = chunkNumber;
     }
