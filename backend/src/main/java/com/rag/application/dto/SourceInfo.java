@@ -14,7 +14,7 @@ public class SourceInfo {
         return title;
     }
 
-    public int getChunkNumber() {
+    public Integer getChunkNumber() {
         return chunkNumber;
     }
 
